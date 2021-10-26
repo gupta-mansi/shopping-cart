@@ -57,7 +57,7 @@ function App(count) {
           first_name: e.first_name,
           last_name: e.last_name,
           email: e.email,
-          count:  0
+          count:  e.count || 0
         }
       })
       console.log(e);
