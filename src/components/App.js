@@ -48,13 +48,35 @@ function App(count) {
     'https://reqres.in/api/users'
   )
     // console.log(users[0]?.data)
+    
+    const handleAdd = (e) => {
+      Dispatch({
+        type: 'INCREMENT',
+        payload: {
+          id: e.id,
+          first_name: e.first_name,
+          last_name: e.last_name,
+          email: e.email,
+          count:  0
+        }
+      })
+      console.log(e);
+    }
+
   return (
     <div className="App">
       <h2>Users</h2>
+
         {users[0]?.data?.data.map(user => (
           <li key={user.id}>
+
+            
+
             {user.first_name}
-            <button className="add_btn" onClick={() => Dispatch({ type: 'INCREMENT'
+
+            <button className="add_btn" onClick={() => handleAdd(user) } >Add</button> 
+         
+            { /* Dispatch({ type: 'INCREMENT'
             ,payload:{
               id: user.id,
               first_name: user.first_name,
@@ -62,8 +84,7 @@ function App(count) {
               email: user.email,
               count: user.count || 0
             }
-            })} >Add</button> 
-         
+            }) */}
 
             <button className="remove_btn" onClick={() => Dispatch({ type: 'DECREMENT' })}>Remove</button>
           </li>
