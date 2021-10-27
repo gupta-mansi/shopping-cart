@@ -3,18 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
-import counter from './reducers/counter';
-import App from './components/App';
+import store from './store';
+import Products from './ProductCard';
 // import { ThunkMiddleware } from 'redux-thunk';
 
-const store = createStore(counter);
+// const store = createStore(counter,composeWithDevTools());
 // store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Products />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

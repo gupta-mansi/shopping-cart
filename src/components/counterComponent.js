@@ -6,7 +6,7 @@ function Count() {
     console.log(state);
     return (
         <div className="App">
-            <p> {state} </p>
+            <p> {JSON.stringify(state)} </p>
         </div>
     );
     }

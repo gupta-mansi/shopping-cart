@@ -1,8 +1,10 @@
 import React from 'react';
 import useAxios from 'axios-hooks'
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import '../App.css';
 import Count from './counterComponent';
+import { Input } from 'antd';
+import 'antd/dist/antd.css';
 
 //Actions
 
@@ -43,13 +45,15 @@ import Count from './counterComponent';
 
 function App(count) {
   const Dispatch = useDispatch();
+  const state = useSelector(state => state)
   // console.log(state);
   const users = useAxios(
-    'https://reqres.in/api/users'
+    'https://fakestoreapi.com/products/'
   )
     // console.log(users[0]?.data)
     
     const handleAdd = (e) => {
+      // console.log("E : ", e);
       Dispatch({
         type: 'INCREMENT',
         payload: {
@@ -57,14 +61,15 @@ function App(count) {
           first_name: e.first_name,
           last_name: e.last_name,
           email: e.email,
-          count:  e.count || 0
+          count: state
         }
-      })
-      console.log(e);
+      });console.log(e.count);
+      // console.log(e);
     }
 
   return (
     <div className="App">
+{/* <Input placeholder="Basic usage"  size="small" style={{width:"50%"}} /> */}
       <h2>Users</h2>
 
         {users[0]?.data?.data.map(user => (

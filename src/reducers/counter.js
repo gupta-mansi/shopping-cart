@@ -3,18 +3,25 @@ const initState = []
 const counter = (state = initState, action) => {
   switch (action.type) {
     case "INCREMENT":
-      // return state + 1;
 
       const length = state.length;
+      console.log(length);
       if(length < 1){
-        state.push({
-          id: action.payload.id,
-          first_name: action.payload.first_name,
-          last_name: action.payload.last_name,
-          email: action.payload.email,
-          count: action.payload.count + 1
-        });
+        return [action.payload];
+        // state.push({
+        //   id: action.payload.id,
+        //   first_name: action.payload.first_name,
+        //   last_name: action.payload.last_name,
+        //   email: action.payload.email,
+        //   count: action.payload.count + 1
+        // });
         console.log(state);
+      }
+      else{
+        return {
+          ...state,
+          count: action.payload + 1,
+        };
       }
 
 
@@ -22,13 +29,15 @@ const counter = (state = initState, action) => {
       // console.log(objIndex);
       // console.log(state);
       // if (objIndex === -1) {
+        
       //   state.push({
       //     id: action.payload.id,
       //     first_name: action.payload.first_name,
       //     last_name: action.payload.last_name,
       //     email: action.payload.email,
-      //     count: action.payload.count
+      //     count: action.payload.count + 1
       //   });
+      //   console.log(action.payload.count);
       //   return state;
       // }
       // else {
@@ -39,6 +48,7 @@ const counter = (state = initState, action) => {
       //     email: action.payload.email,
       //     count: action.payload.count + 1
       //   });
+      //   console.log(action.payload.count);
       //   return state;
       // }
     
