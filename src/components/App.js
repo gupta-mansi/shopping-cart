@@ -3,7 +3,6 @@ import useAxios from 'axios-hooks'
 import { useDispatch, useSelector} from 'react-redux';
 import '../App.css';
 import Count from './counterComponent';
-import { Input } from 'antd';
 import 'antd/dist/antd.css';
 
 //Actions
@@ -69,7 +68,6 @@ function App(count) {
 
   return (
     <div className="App">
-{/* <Input placeholder="Basic usage"  size="small" style={{width:"50%"}} /> */}
       <h2>Users</h2>
 
         {users[0]?.data?.data.map(user => (

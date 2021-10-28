@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
-import Products from './ProductCard';
+import Products from './components/ProductCard';
 // import { ThunkMiddleware } from 'redux-thunk';
 
 // const store = createStore(counter,composeWithDevTools());
