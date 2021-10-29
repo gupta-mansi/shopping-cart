@@ -1,14 +1,24 @@
-const product = (state = [], action) => {
+const initState = {
+    content: []
+}
+
+const product = (state = initState, action) => {
     switch (action.type) {
         case 'FETCH_PRODUCT':
+            console.log('action ',action.data);
+            return {
+                ...state,
+                data: action.data.content,
+              };
+    
+        case 'FETCH_PRODUCT_SUCCESS':
+            console.log('action ',action.data);
             return{
                 ...state,
-                data: action.data
+                content: action.data
             }
-            break;
-    
         default:
-            break;
+            return state;
     }
 }
 

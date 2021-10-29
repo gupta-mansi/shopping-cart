@@ -12,18 +12,33 @@ const { Header, Content } = Layout;
 function Products() {
 
     const dispatch = useDispatch();
-    const content = useSelector(state => state);
+    const content = useSelector(state => state.content);
 
-    useEffect(() => {
-       axios.get('https://fakestoreapi.com/products/')
-        .then(response => {console.log(response) })
-        // .then(products => dispatch({type: "FETCH_PRODUCT", data: products}))
-    }, []);
-    // const data = useAxios('https://fakestoreapi.com/products/');
-    // console.log(data[0]?.data);
+    const FetchProductInstance = axios.create({
+        baseURL: 'https://fakestoreapi.com',
+        headers: {
+          "content-type": "application/json",
+          accept: "application/json",
+        },
+      });
 
+      FetchProductInstance.interceptors.response.use(
+        function (response) {
+            console.log('res',response);
 
+          return dispatch({type: "FETCH_PRODUCT", data: (response)});
+        }
+      );
 
+    
+    // useEffect(() => {
+    //    axios.get('https://fakestoreapi.com/products/')
+    //     .then(response => {console.log(response) })
+    //     .then(products => dispatch({type: "FETCH_PRODUCT", data: products}))
+    //     .catch(error => {console.log(error);})
+    // }, []);
+
+    console.log('content',content);
     return (
         <Layout className="layout">
             <Header>
@@ -31,21 +46,29 @@ function Products() {
             <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
                 {new Array(2).fill(null).map((_, index) => {
                 const key = index + 1;
-                return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
+                return <Menu.Item key={key}>{`Menu ${key}`}</Menu.Item>;
                 })}
             </Menu>
             </Header>
-            {content.map(data => (
-            <Content style={{display:'flex',flexDirection:'row'}}>
+             if({content?.length === 0}){
+                <Content style={{display:'flex',flexDirection:'row'}}>
                 <Card size="small" title="Default size card" style={{ width: 300 }}>
-                    <p>{data.title}</p>
+                    <p>data not available</p>
                 <Button type="primary" size="large" style={{ width: 270 }} >Add to Cart</Button>
                 </Card>
             </Content>
-            ))} 
+                } 
+            else{ 
+                content?.map(data => (
+                <Content style={{display:'flex',flexDirection:'row'}}>
+                    <Card size="small" title="Default size card" style={{ width: 300 }}>
+                        <p>{data.title}</p>
+                    <Button type="primary" size="large"  style={{ width: 270 }} >Add to Cart</Button>
+                    </Card>
+                </Content>
+                ))} 
+            
         </Layout>
     )
-
 }
-
 export default Products;

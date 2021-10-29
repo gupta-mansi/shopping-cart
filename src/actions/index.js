@@ -27,8 +27,16 @@ import useAxios from "axios-hooks";
 // }
 
 export const FetchProducts = () => {
-    return {
+    return FetchProductInstance  ({
          type: "FETCH_PRODUCT",
          data: {}
-    } 
+    } )
+}
+
+
+export const FetchProductsSuccess = (type) => {
+    return{
+        type: "FETCH_PRODUCT_SUCCESS",
+        data: type
+    }
 }
