@@ -39,19 +39,22 @@ function Products() {
                 </div>
             </Header>
             
+            <div style={{display:'flex', flexWrap:'wrap', padding: '5px', background: 'grey'}}> 
+
             {content.length > 0 ? 
                 content.map(data => (
-                    <Content style={{ display: 'grid', gridTemplateColumns: 'auto auto auto' }}>
-                        <Card size="small" title="Default size card" style={{ width: 300 }}>
+                    <Content style={{padding: '5px'}}>
+                        <Card size="small" title="Default size card" style={{ width: 300, height: 250,background: 'lightblue' }}>
                             <p>{data.title}</p>
                         <Button type="primary" size="large"  style={{ width: 270 }} >Add to Cart</Button>
                         </Card>
                     </Content>
                     ))
-            : 
-                
-               '' 
-            }  
+                    : 
+                    
+                    '' 
+                }  
+                </div> 
 
         </Layout>
 
