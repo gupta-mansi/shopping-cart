@@ -48,3 +48,9 @@
   background-color: red;
   color: white;
 }
+
+.grid-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}

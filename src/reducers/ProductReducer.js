@@ -5,11 +5,13 @@ const initState = {
 const product = (state = initState, action) => {
     switch (action.type) {
         case 'FETCH_PRODUCT':
-            console.log('action ',action.data);
+            console.log('actionPayload ',action.payload);
             return {
                 ...state,
-                data: action.data.content,
+                content: action.payload,
               };
+
+            
     
         case 'FETCH_PRODUCT_SUCCESS':
             console.log('action ',action.data);
