@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
 // const axios = require('axios');
 
 // Step-1: Create a new Axios instance with a custom config.

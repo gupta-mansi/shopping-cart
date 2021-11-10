@@ -12,7 +12,6 @@ function Products() {
 
     const dispatch = useDispatch();
 
-
 // FetchProductInstance.get('/products')
 // .then(response => dispatch({ type: 'FETCH_PRODUCT', payload: response.data }))
 // .catch(error => console.log(error));
@@ -23,9 +22,11 @@ function Products() {
         .catch(error => {console.log(error);})
     }, []);
 
-    const content = useSelector(state => state.content);
+    const content = useSelector(state => state.ProductReducer.content);
+    const cart = useSelector(state => state.cartReducer.cart);
 
     console.log('content',content);
+    console.log('cart', cart);
     return (
         <Layout className="layout">
             <Header>
@@ -39,14 +40,17 @@ function Products() {
                 </div>
             </Header>
             
-            <div style={{display:'flex', flexWrap:'wrap', padding: '5px', background: 'grey'}}> 
+            <div style={{display:'flex', flexWrap:'wrap', padding: '5px'}}> 
 
             {content.length > 0 ? 
                 content.map(data => (
                     <Content style={{padding: '5px'}}>
-                        <Card size="small" title="Default size card" style={{ width: 300, height: 250,background: 'lightblue' }}>
-                            <p>{data.title}</p>
-                        <Button type="primary" size="large"  style={{ width: 270 }} >Add to Cart</Button>
+                        <Card hoverable bordered size="small" title={data.title} style={{ width: 300, height: 350, background: 'lightblue' }}>
+                            <center> <img src={data.image} width="150px" height="150px" alt="product image" style={{margin:'2px' , padding:'2px' }} ></img></center>
+                            <p style={{ maxHeight: 45, height: '20%', overflow: 'hidden' }}>{data.description}</p>
+                        <Button type="primary" size="large" key={data.id} style={{ width: 270, marginBottom: '5px' }} onClick={() => dispatch({type: "ADD_TO_CART", payload:{
+                            data, quantity: 1
+                        } })}>Add to Cart</Button>
                         </Card>
                     </Content>
                     ))

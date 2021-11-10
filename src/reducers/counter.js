@@ -1,13 +1,16 @@
-const initState = []
+const cart = []
 
-const counter = (state = initState, action) => {
+const counter = (state = cart, action) => {
   switch (action.type) {
     case "INCREMENT":
 
       const length = state.length;
-      console.log(length);
+      console.log('array_length',length);
       if(length < 1){
-        return [action.payload];
+        console.log('state', state)
+        return{
+          count: action.payload,
+        };
         // state.push({
         //   id: action.payload.id,
         //   first_name: action.payload.first_name,
@@ -15,7 +18,6 @@ const counter = (state = initState, action) => {
         //   email: action.payload.email,
         //   count: action.payload.count + 1
         // });
-        console.log(state);
       }
       else{
         return {
@@ -51,14 +53,11 @@ const counter = (state = initState, action) => {
       //   console.log(action.payload.count);
       //   return state;
       // }
-    
-      break;
     case "DECREMENT":
+      return state;
       // return state - 1;
-      break;
     default:
       return state;
-      break;
   }
 }
 

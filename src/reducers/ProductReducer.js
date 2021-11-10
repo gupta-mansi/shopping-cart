@@ -2,7 +2,7 @@ const initState = {
     content: []
 }
 
-const product = (state = initState, action) => {
+const ProductReducer = (state = initState, action) => {
     switch (action.type) {
         case 'FETCH_PRODUCT':
             console.log('actionPayload ',action.payload);
@@ -10,18 +10,9 @@ const product = (state = initState, action) => {
                 ...state,
                 content: action.payload,
               };
-
-            
-    
-        case 'FETCH_PRODUCT_SUCCESS':
-            console.log('action ',action.data);
-            return{
-                ...state,
-                content: action.data
-            }
         default:
             return state;
     }
 }
 
-export default product;
+export default ProductReducer;
