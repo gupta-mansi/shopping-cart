@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
 import Products from './components/ProductCard';
+import ProductSaga from './components/productSaga';
 // import { ThunkMiddleware } from 'redux-thunk';
 
 // const store = createStore(counter,composeWithDevTools());
@@ -14,6 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Products />
+      <ProductSaga />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -4,7 +4,13 @@ import { Card } from 'antd';
 import { Layout, Menu } from 'antd';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import FetchProductInstance from '../axios';
+import fetchProduct from '../saga';
+import ProductSaga from './productSaga';
+import { BrowserRouter as Router,
+        Route,
+        Link,
+        Routes
+    } from 'react-router-dom';
 
 const { Header, Content } = Layout;
 
@@ -12,21 +18,11 @@ function Products() {
 
     const dispatch = useDispatch();
 
-// FetchProductInstance.get('/products')
-// .then(response => dispatch({ type: 'FETCH_PRODUCT', payload: response.data }))
-// .catch(error => console.log(error));
-    
-     useEffect(() => {
-        FetchProductInstance.get('/products/')
-        .then(response => dispatch({type: "FETCH_PRODUCT", payload: response.data}))
-        .catch(error => {console.log(error);})
-    }, []);
-
-    const content = useSelector(state => state.ProductReducer.content);
-    const cart = useSelector(state => state.cartReducer.cart);
-
-    console.log('content',content);
-    console.log('cart', cart);
+    // const content = useSelector(state => state.ProductReducer.content);
+    // const cart = useSelector(state => state.cartReducer.cart);
+   
+    // console.log('content',content);
+    // console.log('cart', cart);
     return (
         <Layout className="layout">
             <Header>
@@ -38,11 +34,25 @@ function Products() {
                         })}
                     </Menu>
                 </div>
+                    {/* <Router>
+                    <ul>
+                        <li>
+                            <Link to="/">Products</Link>
+                        </li>
+                        <li>
+                            <Link to="/ProductSaga">ProductSaga</Link>
+                        </li>
+                    </ul>
+                        <Routes>
+                            <Route exact path='/' component={Products}></Route>
+                            <Route exact path='/ProductSaga' component={ProductSaga}></Route>
+                        </Routes> 
+                    </Router> */}
             </Header>
             
             <div style={{display:'flex', flexWrap:'wrap', padding: '5px'}}> 
 
-            {content.length > 0 ? 
+            {/* {content.length > 0 ? 
                 content.map(data => (
                     <Content style={{padding: '5px'}}>
                         <Card hoverable bordered size="small" title={data.title} style={{ width: 300, height: 350, background: 'lightblue' }}>
@@ -57,7 +67,7 @@ function Products() {
                     : 
                     
                     '' 
-                }  
+                }   */}
                 </div> 
 
         </Layout>

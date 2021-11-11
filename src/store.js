@@ -11,7 +11,7 @@ const sagaMiddleware = createSagaMiddleware()
 const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
 
-sagaMiddleware.run(helloSaga)
+// sagaMiddleware.run(helloSaga)
 
 // const action = type => store.dispatch({type})
 export default store;
