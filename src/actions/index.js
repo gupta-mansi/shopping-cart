@@ -27,10 +27,10 @@ import useAxios from "axios-hooks";
 // }
 
 export const FetchProducts = (payload) => {
-    return FetchProductInstance  ({
+    return{
          type: "FETCH_PRODUCT",
          payload: payload
-    } )
+    }
 }
 
 

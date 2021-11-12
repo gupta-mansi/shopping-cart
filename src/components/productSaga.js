@@ -7,8 +7,8 @@ function ProductSaga() {
     const product = fetchProduct();
     const content = dispatch({type: "FETCH_PRODUCT", payload: product.data})
 
-    console.log('product',product);
-    console.log('content',content);
+    // console.log('product',product);
+    // console.log('content',content);
      
       return (
         <div>

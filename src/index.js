@@ -15,7 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Products />
-      <ProductSaga />
+      {/* <ProductSaga /> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

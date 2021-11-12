@@ -5,13 +5,13 @@ import { applyMiddleware } from "redux";
 // import thunk from "redux-thunk";
 import rootReducer from "./reducers/RootReducer";
 
-import { helloSaga } from './saga'
+import rootSaga from "./products/saga";
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(sagaMiddleware)));
+console.log(store.getState());
 
-
-// sagaMiddleware.run(helloSaga)
+sagaMiddleware.run(rootSaga)
 
 // const action = type => store.dispatch({type})
 export default store;

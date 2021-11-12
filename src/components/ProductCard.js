@@ -11,14 +11,24 @@ import { BrowserRouter as Router,
         Link,
         Routes
     } from 'react-router-dom';
+import actions from '../products/action';
+
 
 const { Header, Content } = Layout;
 
 function Products() {
 
     const dispatch = useDispatch();
+    const {getProducts} = actions;
+    useEffect(() => {
+        console.log('useEffect');
+        dispatch(getProducts());
+    }, [])
 
-    // const content = useSelector(state => state.ProductReducer.content);
+
+    const ProductsData = useSelector(state => state.products.ProductData);
+
+    console.log('fgbvhb',ProductsData);
     // const cart = useSelector(state => state.cartReducer.cart);
    
     // console.log('content',content);
@@ -34,26 +44,12 @@ function Products() {
                         })}
                     </Menu>
                 </div>
-                    {/* <Router>
-                    <ul>
-                        <li>
-                            <Link to="/">Products</Link>
-                        </li>
-                        <li>
-                            <Link to="/ProductSaga">ProductSaga</Link>
-                        </li>
-                    </ul>
-                        <Routes>
-                            <Route exact path='/' component={Products}></Route>
-                            <Route exact path='/ProductSaga' component={ProductSaga}></Route>
-                        </Routes> 
-                    </Router> */}
             </Header>
             
             <div style={{display:'flex', flexWrap:'wrap', padding: '5px'}}> 
 
-            {/* {content.length > 0 ? 
-                content.map(data => (
+            {ProductsData.length > 0 ? 
+                ProductsData.map(data => (
                     <Content style={{padding: '5px'}}>
                         <Card hoverable bordered size="small" title={data.title} style={{ width: 300, height: 350, background: 'lightblue' }}>
                             <center> <img src={data.image} width="150px" height="150px" alt="product image" style={{margin:'2px' , padding:'2px' }} ></img></center>
@@ -67,7 +63,7 @@ function Products() {
                     : 
                     
                     '' 
-                }   */}
+                }  
                 </div> 
 
         </Layout>
