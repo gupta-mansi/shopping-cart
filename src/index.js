@@ -4,8 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
-import Products from './components/ProductCard';
-import ProductSaga from './components/productSaga';
+import AllProducts from './container/Product';
 // import { ThunkMiddleware } from 'redux-thunk';
 
 // const store = createStore(counter,composeWithDevTools());
@@ -14,8 +13,7 @@ import ProductSaga from './components/productSaga';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Products />
-      {/* <ProductSaga /> */}
+      <AllProducts />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
