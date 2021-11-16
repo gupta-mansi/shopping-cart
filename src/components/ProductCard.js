@@ -3,10 +3,8 @@ import { Button } from 'antd';
 import { Card } from 'antd';
 import { Layout, Menu } from 'antd';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 const ProductCard = () => {
-
 
 const { Content } = Layout;
 

@@ -14,12 +14,10 @@ const Login = () => {
     function handleLogin(values){
         const uname = JSON.parse(localStorage.getItem('username'));
         const password = JSON.parse(localStorage.getItem('password'));
-        uname == values.username && password == values.password ? loginSuccess() : history.goBack();
+        uname == values.username && password == values.password ? loginSuccess() : history.push('/');
     }
 
     function loginSuccess(){
-        history.push('/products');
-        console.log(state);
         dispatch(LoginSuccess())
     }
 

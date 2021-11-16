@@ -1,16 +1,16 @@
 import authActions from "../actions/auth";
   
-  const authReducer = (state = false, action) => {
+  const authReducer = (state = 0, action) => {
       switch (action.type) {
   
           case authActions.LOGIN_SUCCESS:
-              console.log('login_success',state);
-              return {state: true}
+            return {
+                state: 1
+              }
 
           case authActions.LOGOUT_SUCCESS:
-              console.log('logout_success', state);
               return {
-                state: false
+                state: 0
               }
 
           default:

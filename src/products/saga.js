@@ -4,7 +4,7 @@ import { takeEvery, fork, put, call } from "redux-saga/effects";
 
 export function* getProductsEffect() {
    yield takeEvery(actions.GET_PRODUCTS, function* () {
-       console.log('dfdf');
+       console.log('saga');
        try{
            const response = yield call(getProductsReq)
         //    console.log('saga_response',response.data.length);

@@ -9,14 +9,11 @@ import Home from '../../components/Home';
 import Header from '../../components/Header';
 import Login from '../../authComponents/login';
 import Signup from '../../authComponents/Signup';
-import PublicRoute from '../../routes/PublicRoute';
 import PrivateRoute from '../../routes/PrivateRoute';
 import Logout from '../../authComponents/logout';
 
 
 function AllProducts() {
-
-    const isAuthenticated = true;
     const dispatch = useDispatch();
     const {getProducts} = actions;
     useEffect(() => {
@@ -29,11 +26,11 @@ function AllProducts() {
         <Layout className="layout">
             <Router>
                 <Header />
-                    <PublicRoute exact path="/" component={Home} isAuthenticated={isAuthenticated} />
-                    <PrivateRoute path="/products" component={ProductCard} />
-                    <PublicRoute exact path="/login" component={Login} isAuthenticated={isAuthenticated} />
-                    <PublicRoute exact path="/signup" component={Signup} />
-                    <PublicRoute exact path="/logout" component={Logout} />
+                    <PrivateRoute exact path="/products" component={ProductCard} />
+                    <Route exact path="/" component={Home}  />
+                    <Route exact path="/login" component={Login}  />
+                    <Route path="/signup" component={Signup} />
+                    <Route exact path="/logout" component={Logout} />
             </Router>
 
         </Layout>
