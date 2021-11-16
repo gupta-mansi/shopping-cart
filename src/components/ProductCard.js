@@ -16,8 +16,6 @@ console.log('ProductData',ProductsData);
 
     return (
         <div>
-            
-            
             <div style={{display:'flex', flexWrap:'wrap', padding: '5px'}}> 
 
             {ProductsData.length > 0 ? 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Layout } from 'antd';
+import {  Layout } from 'antd';
 
 function Header() {
 
@@ -15,10 +15,13 @@ function Header() {
                 <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/products">Products</Link>
                 </li>
                 <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
-                <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none", float: 'right' }} to="/login">Login</Link>
+                <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/login">Login</Link>
                 </li>
                 <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
-                <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none", float: 'right' }} to="/signup">SignUp</Link>
+                <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/signup">SignUp</Link>
+                </li>
+                <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
+                <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none", float: 'right' }} to="/logout">Logout</Link>
                 </li>
             </Header>
         </div>

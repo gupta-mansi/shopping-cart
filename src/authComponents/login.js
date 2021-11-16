@@ -1,14 +1,26 @@
 import { Card, Form, Input, Button, Checkbox } from 'antd';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import authActions from '../auth/actions/auth';
 
 const Login = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const state = useSelector(state=> state.authReducer);
+
+    const { LoginSuccess } = authActions;
 
     function handleLogin(values){
-        const uname = localStorage.getItem('username');
-        const password = localStorage.getItem('password');
-        uname == JSON.stringify(values.username) && password == JSON.stringify(values.password) ? history.push('/products') : history.push('/login')
+        const uname = JSON.parse(localStorage.getItem('username'));
+        const password = JSON.parse(localStorage.getItem('password'));
+        uname == values.username && password == values.password ? loginSuccess() : history.goBack();
+    }
+
+    function loginSuccess(){
+        history.push('/products');
+        console.log(state);
+        dispatch(LoginSuccess())
     }
 
     return (
