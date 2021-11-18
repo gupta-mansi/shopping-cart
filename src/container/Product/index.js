@@ -11,6 +11,7 @@ import Login from '../../authComponents/login';
 import Signup from '../../authComponents/Signup';
 import PrivateRoute from '../../routes/PrivateRoute';
 import Logout from '../../authComponents/logout';
+import cart from '../../components/cart';
 
 
 function AllProducts() {
@@ -27,6 +28,7 @@ function AllProducts() {
             <Router>
                 <Header />
                     <PrivateRoute exact path="/products" component={ProductCard} />
+                    <PrivateRoute exact path="/cart" component={cart} />
                     <Route exact path="/" component={Home}  />
                     <Route exact path="/login" component={Login}  />
                     <Route path="/signup" component={Signup} />

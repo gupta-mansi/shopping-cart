@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {  Layout } from 'antd';
+import { LogoutOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
 function Header() {
 
@@ -20,9 +21,14 @@ function Header() {
                 <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
                 <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/signup">SignUp</Link>
                 </li>
-                <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
-                <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none", float: 'right' }} to="/logout">Logout</Link>
-                </li>
+                <div style={{float: 'right'}}>
+                    <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
+                        <Link style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to='/cart'><ShoppingCartOutlined /></Link>
+                    </li>
+                    <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
+                    <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/logout"><LogoutOutlined />Logout</Link>
+                    </li>
+                </div>
             </Header>
         </div>
     )

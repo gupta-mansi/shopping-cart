@@ -19,6 +19,7 @@ const Login = () => {
 
     function loginSuccess(){
         dispatch(LoginSuccess())
+        history.push('/products');
     }
 
     return (
