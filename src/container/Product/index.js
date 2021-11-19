@@ -27,8 +27,8 @@ function AllProducts() {
         <Layout className="layout">
             <Router>
                 <Header />
-                    <PrivateRoute exact path="/products" component={ProductCard} />
-                    <PrivateRoute exact path="/cart" component={cart} />
+                    <Route exact path="/products" component={ProductCard} />
+                    <Route exact path="/cart" component={cart} />
                     <Route exact path="/" component={Home}  />
                     <Route exact path="/login" component={Login}  />
                     <Route path="/signup" component={Signup} />

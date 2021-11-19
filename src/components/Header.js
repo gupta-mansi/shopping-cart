@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {  Layout } from 'antd';
-import { LogoutOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { LogoutOutlined, ShoppingCartOutlined, LoginOutlined } from '@ant-design/icons';
 
 function Header() {
 
@@ -16,7 +16,7 @@ function Header() {
                 <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/products">Products</Link>
                 </li>
                 <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
-                <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/login">Login</Link>
+                <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/login"><LoginOutlined /> Login</Link>
                 </li>
                 <li style={{ listStyleType: "none", display: 'inline', margin: '10px' }}>
                 <Link  style={{ fontSize: "1.3rem", textDecoration: "none", color: "white", listStyleType: "none" }} to="/signup">SignUp</Link>

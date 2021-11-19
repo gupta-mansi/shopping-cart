@@ -11,6 +11,7 @@ function Logout(){
 
     localStorage.clear();
     dispatch(LogoutSuccess());
+    history.push('/signup');
 
     return null
 
