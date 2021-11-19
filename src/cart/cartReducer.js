@@ -8,7 +8,6 @@ const initState = {
 
 const CartReducer = (state = initState, action) => {
     switch (action.type) {
-        
 
         case CartActions.ADD_CART:
             const item =  state.cartItems.find(item => item.id === action.payload.id);

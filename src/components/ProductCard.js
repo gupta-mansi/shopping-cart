@@ -24,7 +24,7 @@ function handleClick(data){
 }
 
     return (
-        <div>
+        <div style={{backgroundColor: '#f8f8ff'}}>
         <center>
         <div style={{ display: 'inline-block', position: 'relative',marginTop: '15px', height: 'fit-content' }} >
             <input type="text" placeholder="Search here...." value={SearchKey} onChange={(e) => setSearchKey(e.target.value)} style={{ width: '80%', height: '36px', borderRadius: '2px 0 0 2px', border: 0, outline: '0 none', padding: '0 16px' }}/>
@@ -32,12 +32,12 @@ function handleClick(data){
         </div>
         </center>
 
-            <div style={{display:'flex', flexWrap:'wrap', padding: '5px'}}> 
+            <div style={{display:'flex', flexWrap:'wrap', padding: '5px', marginLeft:'40px'}}> 
             {
                 FilteredProducts?.length > 0 ? 
                 FilteredProducts.map(data => (
                     <Content style={{padding: '5px'}}>
-                        <Card hoverable bordered size="small" title={data.title} style={{ width: 300, height: 350, background: 'lightblue', fontWeight: 'bolder' }}>
+                        <Card hoverable bordered size="small" title={data.title} style={{ width: 300, height: 350, textAlign: 'center', fontWeight: 'bolder' }}>
                             <center> <img src={data.image} width="150px" height="150px"  alt="product image" style={{margin:'2px' , padding:'2px', objectFit: 'unset' }} ></img> 
                             <p style={{ maxHeight: 45, height: '20%', overflow: 'hidden', marginTop: '5px', color: 'slateBlue' }}>{data.description}</p>
                                 <h3>Price: <span style={{ color: 'red' }}> {data.price}/- </span> </h3> </center>
@@ -51,7 +51,7 @@ function handleClick(data){
             ProductsData.length > 0 ? 
                 ProductsData.map(data => (
                     <Content style={{padding: '5px'}}>
-                        <Card hoverable bordered size="small" title={data.title} style={{ width: 300, height: 350, background: 'lightblue', fontWeight: 'bolder' }}>
+                        <Card hoverable bordered size="small" title={data.title} style={{ width: 300, height: 350, textAlign: 'center', fontWeight: 'bolder' }}>
                             <center> <img src={data.image} width="150px" height="150px"  alt="product image" style={{margin:'2px' , padding:'2px', objectFit: 'unset' }} ></img> 
                             <p style={{ maxHeight: 45, height: '20%', overflow: 'hidden', marginTop: '5px', color: 'slateBlue' }}>{data.description}</p>
                                 <h3>Price: <span style={{ color: 'red' }}> {data.price}/- </span> </h3> </center>
