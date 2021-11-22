@@ -25,7 +25,7 @@ const Cart = () => {
                         </div>
                         <div>
                             <Button type="primary" shape="circle" size='small' icon={<MinusOutlined />} style={{backgroundColor: 'white', color: 'grey', borderColor: 'grey'}}  />
-                            <Input size='small' value={items.qty} style={{width:'30px', marginRight: '2px', marginLeft: '2px'}} />
+                            <Input size='small' value={items.qty ? items.qty : 1} style={{width:'30px', marginRight: '2px', marginLeft: '2px'}} />
                             <Button type="primary" shape="circle" size='small' icon={<PlusOutlined />} style={{backgroundColor: 'white', color: 'grey', borderColor: 'grey'}}  />
                         </div>
                     </Card>
