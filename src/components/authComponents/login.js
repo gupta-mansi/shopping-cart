@@ -2,7 +2,7 @@ import { Card, Form, Input, Button, Checkbox } from 'antd';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import authActions from '../auth/actions/auth';
+import authActions from '../../redux/auth/actions/auth';
 
 const Login = () => {
     const history = useHistory();

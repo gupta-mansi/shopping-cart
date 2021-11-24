@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from './store';
 import AllProducts from './container/Product';
+import store from './redux/store/store';
 // import { ThunkMiddleware } from 'redux-thunk';
 
 // const store = createStore(counter,composeWithDevTools());

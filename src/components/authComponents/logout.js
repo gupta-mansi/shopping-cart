@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import authActions from "../auth/actions/auth";
+import authActions from "../../redux/auth/actions/auth";
 
 function Logout(){
 

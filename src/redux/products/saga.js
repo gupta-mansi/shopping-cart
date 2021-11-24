@@ -1,4 +1,4 @@
-import { getProductsReq } from "../helpers/services/productServices";
+import { getProductsReq } from "../../helpers/services/productServices";
 import actions from "./action";
 import { takeEvery, fork, put, call } from "redux-saga/effects";
 
