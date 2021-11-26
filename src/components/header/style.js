@@ -13,3 +13,11 @@ export const LinkWrap = styled(Link)`
     color: white; 
     margin: 10px;
 `;
+
+export const CartQty = styled.sup`
+    background-color: #ffff;
+    color: green;
+    font-weight: bolder;
+    border-radius: 50%;
+    font-size: 20px;
+`;

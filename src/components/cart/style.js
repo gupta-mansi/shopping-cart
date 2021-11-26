@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from 'antd';
 
 export const Container = styled.div`
     margin: 0 auto;
@@ -29,4 +30,10 @@ export const PriceDetail = styled.div`
     vertical-align: top; 
     flex-flow: column; 
     padding-left: 34px;
+`;
+
+export const Buttons = styled(Button)`
+    background-color: #fff;
+    color: grey;
+    border-color: grey;
 `;

@@ -1,45 +1,59 @@
 import CartActions from "./cartAction"
 const initState = {
-    cartItems: []
+    cartItems: [],
+    totQty: 0
 }
 
 
-const CartReducer = (state = [], action) => {
+const CartReducer = (state = initState, action) => {
     switch (action.type) {
 
         case CartActions.ADD_CART:  
-        console.log(action.payload);
-            return { ...state, [action.payload.id]: action.payload };
-        // console.log(state.totalPrice + action.payload.itemPrice);
-            // const item =  state.cartItems.find(item => item.id === action.payload.id);
+        const products = action.payload
+        const data =  state.cartItems.find(item => item.id === products.id);
 
-            // if(item){
-            //     return{
-            //         cartItems: state.cartItems.map(item => item.id === action.payload.id
-            //             && {
-            //               ...item,
-            //               qty:  item.qty ? item.qty += 1 : item.qty = 2
-            //             }
-                    
-            //           )
-            //     }
-            // }
-            // else{
-            //     return {
-            //         cartItems: [...state.cartItems, action.payload]
-            //     }
-            // }
-            // return{
-            //     ...state,
-            //     qty : action.payload.qty = 1,
-            //     totalPrice: state.totalPrice + action.payload.price * action.payload.qty,
-            //     cartItems:[...state.cartItems,action.payload]
-            // }
+            return { ...state, 
+                cartItems: data ? state.cartItems.map(item => item.id === products.id
+                                ? {
+                                  ...item,
+                                  qty: item.qty += 1
+                                } : item
+                            
+                              ) : [...state.cartItems, {...products,qty:1}],
+                totQty: state.totQty += 1
+            }; 
 
-            case CartActions.ADD_CART_SUCCESS:
-            console.log('add_cart-reducer',action.payload);
-            return state
-            
+        case CartActions.INCREASE_QUANTITY:
+            return{
+                ...state,
+                cartItems: state.cartItems.map(item => item.id === action.payload
+                    ? {
+                        ...item,
+                        qty: item.qty < 5 ? item.qty +=1 : item.qty
+                    } : item)
+            }
+
+        case CartActions.DECREASE_QUANTITY:
+            return{
+                ...state,
+                cartItems: state.cartItems.map(item => item.id === action.payload 
+                    ? {
+                        ...item,
+                        qty: item.qty > 1 ? item.qty -=1 : item.qty
+                    } : item)
+            }
+
+        case CartActions.REMOVE_CART:
+            const id = action.id;
+            console.log('id',id,'q', action.qty);
+            const newList = state.cartItems.filter(item => item.id !== id)
+            return{ 
+                ...state,
+                cartItems: newList,
+                totQty: state.totQty - action.qty
+
+            }
+
         default:
             return state;
         }

@@ -1,11 +1,14 @@
 import React from 'react';
 import {  Layout } from 'antd';
 import { LogoutOutlined, ShoppingCartOutlined, LoginOutlined } from '@ant-design/icons';
-import { LinkWrap, ListWrapper } from './style';
+import { CartQty, LinkWrap, ListWrapper } from './style';
+import { useSelector } from 'react-redux';
 
 function Header() {
 
     const { Header } = Layout;
+    const cart = useSelector(state => state.CartReducer.totQty);
+    console.log('header',cart);
     return (
         <div>
             <Header>
@@ -18,7 +21,7 @@ function Header() {
 
                 <div style={{float: 'right'}}>
                     <ListWrapper>
-                        <LinkWrap to='/cart'><ShoppingCartOutlined /></LinkWrap>
+                        <LinkWrap to='/cart'><ShoppingCartOutlined /><CartQty>{cart}</CartQty></LinkWrap>
                 
                         <LinkWrap to="/logout"><LogoutOutlined />Logout</LinkWrap>
                     </ListWrapper>

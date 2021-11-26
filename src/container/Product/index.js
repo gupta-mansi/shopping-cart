@@ -42,13 +42,14 @@ function AllProducts() {
         dispatch(GetDetail());
     }, [])
 
+
     return (
         <Layout className="layout">
             <Router>
                 <Header />
                 {/* PrivateRoutes */}
-                    <Route exact path="/products" component={ProductCard} />
-                    <Route exact path="/cart" component={Cart} />
+                    <PrivateRoute exact path="/products" component={ProductCard} />
+                    <PrivateRoute exact path="/cart" component={Cart} />
                 {/* PrivateRoutes */}
                     <Route exact path="/" component={Home}  />
                     <Route exact path="/login" component={Login}  />
@@ -56,7 +57,7 @@ function AllProducts() {
                     <Route exact path="/logout" component={Logout} />
 
                     <Route exact path="/view" component={ViewProduct} />
-                    <Route exact path='/productDetails/:id' component={ViewProduct} />
+                    <PrivateRoute exact path='/productDetails/:id' component={ViewProduct} />
             </Router>
 
         </Layout>

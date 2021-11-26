@@ -1,19 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { StarFilled } from '@ant-design/icons';
-import { useParams } from 'react-router';
-import { Button, Input } from 'antd';
+import { useHistory, useParams } from 'react-router';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Container, ImageContainer, Image, ProductData, RatingContainer, Ratings, Price, CartButton } from './style';
-
+import CartActions from '../../redux/cart/cartAction';
 
 const ViewProduct = () => {
 
     const params = useParams();
-    console.log('params id', params.id);
-
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const {AddtoCart} = CartActions;
     const products = useSelector(state => state.ProductDetailReducer.products)
-    console.log(products);
+
+    function handleClick(data){
+        dispatch(AddtoCart(data))
+        history.push('/cart');
+    }
     return (
         !products ? 'no data found'
         :
@@ -35,7 +39,7 @@ const ViewProduct = () => {
                         <Price>Price: {data.price}/- </Price>
                     </ProductData>
             </Container>
-            <CartButton ><ShoppingCartOutlined /> ADD TO CART </CartButton>
+            <CartButton onClick={() => handleClick(data)}><ShoppingCartOutlined /> ADD TO CART </CartButton>
         </div>
 
         ))

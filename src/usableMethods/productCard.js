@@ -1,4 +1,16 @@
-// export default function AddCart(data,e){
-//     dispatch(AddtoCart(data))
-//     e.target.disabled = true;
-// }
+import { useDispatch } from "react-redux";
+import CartActions from "../redux/cart/cartAction";
+
+const { IncreaseQuantity } = CartActions;
+
+
+     
+export function Increase(data){
+    const dispatch = useDispatch();
+        console.log(dispatch(IncreaseQuantity(data)))
+    }
+
+
+
+
+

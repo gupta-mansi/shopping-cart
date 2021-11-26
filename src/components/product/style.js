@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Card, Layout } from 'antd';
+import { Button, Card } from 'antd';
 
 export const ComponentWrapper = styled.div`
     background: #f8f8ff;

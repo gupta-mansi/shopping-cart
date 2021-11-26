@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Switch, useHistory, useParams, useRouteMatch } from 'react-router'; 
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Layout } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import CartActions from '../../redux/cart/cartAction'; 
 import { ComponentWrapper, SearchWrapper, SearchInput, SearchIcon, ProductContainer, CardWrapper, ImageWrapper, DescriptionWrapper, ButtonWrap } from './style';
 import { Link } from 'react-router-dom';
-import ViewProduct from '../productDetail/ViewProduct';
-import DetailAction from '../../redux/productDetail/action';
 
 const ProductCard = () => {
     
@@ -15,11 +12,8 @@ const ProductCard = () => {
 //  Hooks
     const [SearchKey, setSearchKey] = useState('');
     const { Content } = Layout;
-    const history = useHistory();
-    let {params} = useParams();
     const dispatch = useDispatch();
     const {AddtoCart} = CartActions;
-    const {GetDetail} = DetailAction;
     const ProductsData = useSelector(state => state.products.ProductData);
 // Hooks
 
@@ -32,27 +26,13 @@ const ProductCard = () => {
         e.target.disabled = true;
     }
 
-    // const Getdetail = (ProductsData) => {
-        // dispatch(GetDetail(ProductsData, params))
-    // }
-
-    // useEffect(() => {
-    //     console.log('useeeeeeeeeeeeeeeee');
-    //     dispatch(GetDetail())
-    // }, [])
-
-    function handleImageClick(data){
-        // history.push(`productDetails/${id}`)
-        dispatch(GetDetail(data,params))
-        console.log('bbbbbbbb', params.id);
-    }
 //  Functions
 
     return (
         <ComponentWrapper>
         <center>
         <SearchWrapper>
-            <SearchInput type="text" placeholder="Search here...." value={SearchKey} onChange={(e) => setSearchKey(e.target.value)}/>
+            <SearchInput type="text" placeholder="Search here...." value={SearchKey} onChange={(e) => setSearchKey(e.target.value)} allo/>
             <SearchIcon><SearchOutlined /> </SearchIcon>
         </SearchWrapper>
         </center>
@@ -63,10 +43,10 @@ const ProductCard = () => {
                 FilteredProducts.map(data => (
                     <Content style={{padding: '5px'}}>
                         <CardWrapper hoverable bordered size="small" title={data.title}>
-                            <center> <ImageWrapper src={data.image} onClick={() => handleImageClick(data, data.id)} alt="product image" />  
+                            <center> <Link to={`/productDetails/${data.id}`}> <ImageWrapper src={data.image}  alt="product image" /> </Link>  
                             <DescriptionWrapper>{data.description}</DescriptionWrapper>
                                 <h3>Price: <span style={{ color: 'red' }}> {data.price}/- </span> </h3> </center>
-                        <ButtonWrap size="large" value={data.id} onClick={(e) => handleClick(data,e)}>Add to Cart</ButtonWrap>
+                        <ButtonWrap size="large" onClick={(e) => handleClick(data,e)}>Add to Cart</ButtonWrap>
                         </CardWrapper>
                     </Content>
                     ))
@@ -80,7 +60,7 @@ const ProductCard = () => {
                             <center> <Link to={`/productDetails/${data.id}`}> <ImageWrapper src={data.image}  alt="product image" /> </Link> 
                             <DescriptionWrapper>{data.description}</DescriptionWrapper>
                                 <h3>Price: <span style={{ color: 'red' }}> {data.price}/- </span> </h3> </center>
-                        <ButtonWrap size="large" value={data.id} onClick={(e) => handleClick(data,e)} >Add to Cart</ButtonWrap>
+                        <ButtonWrap size="large" onClick={(e) => handleClick(data,e)} >Add to Cart</ButtonWrap>
                         </CardWrapper>
                     </Content>
                     ))  

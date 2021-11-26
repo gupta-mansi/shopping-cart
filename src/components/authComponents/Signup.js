@@ -39,16 +39,9 @@ function handleSignup(values) {
                     <Input.Password />
                 </Form.Item>
 
-                <Form.Item
-                    label="Confirm Password"
-                    name="confirmPassword"
-                >
-                    <Input.Password />
-                </Form.Item>
-
                 <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
                     <Button type="primary" htmlType="submit"  >
-                    Submit
+                    SignUp
                     </Button>
                 </Form.Item>
                 </Form>
